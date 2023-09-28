@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://w2v4r0fyrhwg"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
+[ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/character/movement/main character sprite sheet.png" id="4_mr7nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go42v"]
+size = Vector2(29, 43)
+
+[sub_resource type="Animation" id="Animation_kcimp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_t6ci5"]
+resource_name = "movement"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6145"]
+_data = {
+"RESET": SubResource("Animation_kcimp"),
+"movement": SubResource("Animation_t6ci5")
+}
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_fqb2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.500008)
+shape = SubResource("RectangleShape2D_go42v")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="PlayerAnimation2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, 2)
+scale = Vector2(2.32, 2.16)
+texture = ExtResource("4_mr7nb")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimation2D"]
+autoplay = "movement"
+libraries = {
+"": SubResource("AnimationLibrary_o6145")
+}

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbtjhjmqhtce0"]
+
+[ext_resource type="Texture2D" uid="uid://di8fd27s0sbqe" path="res://assets/main_menu/main_menu.tres" id="2_dqrgc"]
+[ext_resource type="Theme" uid="uid://cufdjqdaertch" path="res://assets/styles/button/button.tres" id="2_emol0"]
+[ext_resource type="Script" path="res://scenes/StartButton.gd" id="3_n2ec1"]
+[ext_resource type="Script" path="res://scenes/ExitButton.gd" id="4_f4orn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_dqrgc")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 200.0
+offset_right = 1024.0
+offset_bottom = 258.0
+theme = ExtResource("2_emol0")
+text = "Start"
+script = ExtResource("3_n2ec1")
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 272.0
+offset_right = 1024.0
+offset_bottom = 330.0
+theme = ExtResource("2_emol0")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 344.0
+offset_right = 1024.0
+offset_bottom = 402.0
+theme = ExtResource("2_emol0")
+text = "Exit"
+script = ExtResource("4_f4orn")

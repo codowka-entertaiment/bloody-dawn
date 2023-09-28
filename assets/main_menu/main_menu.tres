@@ -1,0 +1,48 @@
+[gd_resource type="AnimatedTexture" load_steps=15 format=3 uid="uid://di8fd27s0sbqe"]
+
+[ext_resource type="Texture2D" uid="uid://bsxm1gmn8wmrc" path="res://assets/main_menu/night in the wwood2.png" id="2_nehi0"]
+[ext_resource type="Texture2D" uid="uid://5x1g1lv1e07o" path="res://assets/main_menu/night in the wwood11.png" id="3_l7ame"]
+[ext_resource type="Texture2D" uid="uid://bi6sod10kxxj8" path="res://assets/main_menu/night in the wwood12.png" id="4_5ab3g"]
+[ext_resource type="Texture2D" uid="uid://bkkaf0nn1suc7" path="res://assets/main_menu/night in the wwood13.png" id="5_gwgn6"]
+[ext_resource type="Texture2D" uid="uid://joti73qh5i3f" path="res://assets/main_menu/night in the wwood15.png" id="6_tnd5h"]
+[ext_resource type="Texture2D" uid="uid://vgcgr4nhw4im" path="res://assets/main_menu/night in the wwood16.png" id="7_ypv85"]
+[ext_resource type="Texture2D" uid="uid://bpsbp4pwmrhsj" path="res://assets/main_menu/night in the wwood3.png" id="8_j4xms"]
+[ext_resource type="Texture2D" uid="uid://5ldxxoslaupf" path="res://assets/main_menu/night in the wwood4.png" id="9_4g85k"]
+[ext_resource type="Texture2D" uid="uid://brdtngcdxt521" path="res://assets/main_menu/night in the wwood5.png" id="10_gvas6"]
+[ext_resource type="Texture2D" uid="uid://bi41m5o0wo6x4" path="res://assets/main_menu/night in the wwood6.png" id="11_s6d7o"]
+[ext_resource type="Texture2D" uid="uid://d3epk0t0h5s6c" path="res://assets/main_menu/night in the wwood7.png" id="12_62kxd"]
+[ext_resource type="Texture2D" uid="uid://b28bk6ibmbirq" path="res://assets/main_menu/night in the wwood8.png" id="13_jl75p"]
+[ext_resource type="Texture2D" uid="uid://43co0iyyj11u" path="res://assets/main_menu/night in the wwood9.png" id="14_wd586"]
+[ext_resource type="Texture2D" uid="uid://kyfbdtjmptko" path="res://assets/main_menu/night in the wwood10.png" id="15_7i4p2"]
+
+[resource]
+frames = 15
+speed_scale = 4.5
+frame_1/texture = ExtResource("2_nehi0")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_j4xms")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_4g85k")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_gvas6")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_s6d7o")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_62kxd")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_jl75p")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("14_wd586")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("15_7i4p2")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_l7ame")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_5ab3g")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_gwgn6")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_tnd5h")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_ypv85")
+frame_14/duration = 1.0
