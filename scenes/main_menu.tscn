@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbtjhjmqhtce0"]
+[gd_scene load_steps=9 format=3 uid="uid://bbtjhjmqhtce0"]
 
-[ext_resource type="Texture2D" uid="uid://di8fd27s0sbqe" path="res://assets/main_menu/main_menu.tres" id="2_dqrgc"]
-[ext_resource type="Theme" uid="uid://cufdjqdaertch" path="res://assets/styles/button/button.tres" id="2_emol0"]
-[ext_resource type="Script" path="res://scenes/StartButton.gd" id="3_n2ec1"]
+[ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="1_qkw4s"]
+[ext_resource type="Texture2D" uid="uid://cc8orb1divqov" path="res://assets/main_menu/start.png" id="2_8hlno"]
 [ext_resource type="Script" path="res://scenes/ExitButton.gd" id="4_f4orn"]
+[ext_resource type="Texture2D" uid="uid://br0xxbjat7uya" path="res://assets/main_menu/start2.png" id="4_x454g"]
+[ext_resource type="Texture2D" uid="uid://d1cx7cklogq81" path="res://assets/main_menu/exit.png" id="5_1sb3a"]
+[ext_resource type="Script" path="res://scenes/TextureButton.gd" id="6_xp13f"]
+[ext_resource type="Texture2D" uid="uid://dpvpd4rtrcig1" path="res://assets/main_menu/settings.png" id="7_f7sx6"]
+[ext_resource type="AudioStream" uid="uid://cm1ith6hd5f8e" path="res://assets/music/funny test main menu ost.mp3" id="8_uousk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,36 +18,49 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_dqrgc")
+texture = ExtResource("1_qkw4s")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="SettingsButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 832.0
-offset_top = 200.0
-offset_right = 1024.0
-offset_bottom = 258.0
-theme = ExtResource("2_emol0")
-text = "Start"
-script = ExtResource("3_n2ec1")
+offset_left = 904.0
+offset_top = 266.0
+offset_right = 1131.0
+offset_bottom = 349.0
+texture_normal = ExtResource("7_f7sx6")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="StartButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 832.0
-offset_top = 272.0
-offset_right = 1024.0
-offset_bottom = 330.0
-theme = ExtResource("2_emol0")
-text = "Settings"
+offset_left = 933.0
+offset_top = 176.0
+offset_right = 1099.0
+offset_bottom = 268.0
+texture_normal = ExtResource("2_8hlno")
+texture_hover = ExtResource("4_x454g")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_xp13f")
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 832.0
-offset_top = 344.0
-offset_right = 1024.0
-offset_bottom = 402.0
-theme = ExtResource("2_emol0")
-text = "Exit"
+offset_left = 952.0
+offset_top = 371.0
+offset_right = 1095.0
+offset_bottom = 454.0
+texture_normal = ExtResource("5_1sb3a")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_f4orn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uousk")
+volume_db = -20.0
+autoplay = true
