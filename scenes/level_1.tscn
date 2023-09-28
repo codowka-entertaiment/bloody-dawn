@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_2bgvj"]
 [ext_resource type="Texture2D" uid="uid://djylhrqks8ht8" path="res://assets/floor/grass_1.png" id="1_wpl0d"]
 [ext_resource type="PackedScene" uid="uid://w2v4r0fyrhwg" path="res://player/player.tscn" id="2_x2du7"]
-[ext_resource type="PackedScene" uid="uid://rcb4jkd04w21" path="res://enemy/Zombie.tscn" id="4_p4sg7"]
+[ext_resource type="PackedScene" uid="uid://rcb4jkd04w21" path="res://Enemy/Zombie.tscn" id="4_p4sg7"]
 
 [sub_resource type="GDScript" id="GDScript_skgw2"]
 script/source = "extends Sprite2D
