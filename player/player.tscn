@@ -65,3 +65,5 @@ autoplay = "movement"
 libraries = {
 "": SubResource("AnimationLibrary_o6145")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -56,3 +56,5 @@ autoplay = "walking"
 libraries = {
 "": SubResource("AnimationLibrary_8q3k6")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
