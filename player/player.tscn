@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
 [ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/character/movement/main character sprite sheet.png" id="4_mr7nb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_go42v"]
-size = Vector2(29, 43)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f8yq"]
+height = 35.0
 
 [sub_resource type="Animation" id="Animation_kcimp"]
 length = 0.001
@@ -50,7 +50,7 @@ script = ExtResource("1_fqb2f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.500008)
-shape = SubResource("RectangleShape2D_go42v")
+shape = SubResource("CapsuleShape2D_0f8yq")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="PlayerAnimation2D" type="Sprite2D" parent="."]

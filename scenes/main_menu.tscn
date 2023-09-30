@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbtjhjmqhtce0"]
+[gd_scene load_steps=10 format=3 uid="uid://bbtjhjmqhtce0"]
 
 [ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="1_qkw4s"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_yw0bs"]
 [ext_resource type="Texture2D" uid="uid://cc8orb1divqov" path="res://assets/main_menu/start.png" id="2_8hlno"]
-[ext_resource type="Script" path="res://scenes/ExitButton.gd" id="4_f4orn"]
 [ext_resource type="Texture2D" uid="uid://br0xxbjat7uya" path="res://assets/main_menu/start2.png" id="4_x454g"]
 [ext_resource type="Texture2D" uid="uid://d1cx7cklogq81" path="res://assets/main_menu/exit.png" id="5_1sb3a"]
-[ext_resource type="Script" path="res://scenes/TextureButton.gd" id="6_xp13f"]
+[ext_resource type="Texture2D" uid="uid://clp1o6gx0tqp6" path="res://assets/main_menu/shop_button_beta.png" id="6_0mk3k"]
 [ext_resource type="Texture2D" uid="uid://dpvpd4rtrcig1" path="res://assets/main_menu/settings.png" id="7_f7sx6"]
+[ext_resource type="Texture2D" uid="uid://boicxqg5m3smj" path="res://assets/main_menu/credits_button_beta.png" id="7_t52k6"]
 [ext_resource type="AudioStream" uid="uid://cm1ith6hd5f8e" path="res://assets/music/funny test main menu ost.mp3" id="8_uousk"]
 
 [node name="Control" type="Control"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yw0bs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -27,10 +29,12 @@ texture = ExtResource("1_qkw4s")
 [node name="SettingsButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 904.0
-offset_top = 266.0
-offset_right = 1131.0
-offset_bottom = 349.0
+offset_left = 898.0
+offset_top = 270.0
+offset_right = 1125.0
+offset_bottom = 353.0
+focus_neighbor_top = NodePath("../ShopButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
 texture_normal = ExtResource("7_f7sx6")
 ignore_texture_size = true
 stretch_mode = 3
@@ -39,28 +43,63 @@ stretch_mode = 3
 texture_filter = 1
 layout_mode = 0
 offset_left = 933.0
-offset_top = 176.0
+offset_top = 104.0
 offset_right = 1099.0
-offset_bottom = 268.0
+offset_bottom = 196.0
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ShopButton")
 texture_normal = ExtResource("2_8hlno")
 texture_hover = ExtResource("4_x454g")
+texture_focused = ExtResource("4_x454g")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("6_xp13f")
+
+[node name="ShopButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 898.0
+offset_top = 195.0
+offset_right = 1115.0
+offset_bottom = 278.0
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("6_0mk3k")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 911.0
+offset_top = 373.0
+offset_right = 1123.0
+offset_bottom = 456.0
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+texture_normal = ExtResource("7_t52k6")
+ignore_texture_size = true
+stretch_mode = 3
 
 [node name="ExitButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 952.0
-offset_top = 371.0
-offset_right = 1095.0
-offset_bottom = 454.0
+offset_left = 946.0
+offset_top = 458.0
+offset_right = 1089.0
+offset_bottom = 541.0
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = ExtResource("5_1sb3a")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("4_f4orn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_uousk")
 volume_db = -20.0
 autoplay = true
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

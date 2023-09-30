@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://daawvpk782fnt"]
+[gd_scene load_steps=5 format=3 uid="uid://daawvpk782fnt"]
 
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_2bgvj"]
 [ext_resource type="PackedScene" uid="uid://w2v4r0fyrhwg" path="res://player/player.tscn" id="2_x2du7"]
 [ext_resource type="Texture2D" uid="uid://bevhgr1i827ib" path="res://assets/floor/grass_2.jpg" id="3_uidgi"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayxph"]
+height = 43.0
+
 [node name="Level_1" type="Node2D"]
+process_mode = 1
 position = Vector2(576, 328)
 script = ExtResource("1_2bgvj")
 
@@ -16,6 +20,9 @@ position_smoothing_enabled = true
 [node name="PlayerNode" type="Node2D" parent="."]
 
 [node name="Player" parent="PlayerNode" instance=ExtResource("2_x2du7")]
+
+[node name="CollisionShape2D" parent="PlayerNode/Player" index="0"]
+shape = SubResource("CapsuleShape2D_ayxph")
 
 [node name="Mobs" type="Node2D" parent="."]
 
