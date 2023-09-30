@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rcb4jkd04w21"]
+[gd_scene load_steps=7 format=3 uid="uid://rcb4jkd04w21"]
 
 [ext_resource type="Script" path="res://enemy/Zombie.gd" id="1_4xi2q"]
 [ext_resource type="Texture2D" uid="uid://b7tp8pydceego" path="res://assets/enemy/chuchelo.png" id="2_gb306"]
@@ -41,7 +41,11 @@ _data = {
 "walking": SubResource("Animation_7r8e8")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vi82"]
+
 [node name="Zombie" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4xi2q")
 
 [node name="ZombieSprite2D" type="Sprite2D" parent="."]
@@ -56,3 +60,6 @@ autoplay = "walking"
 libraries = {
 "": SubResource("AnimationLibrary_8q3k6")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0vi82")
