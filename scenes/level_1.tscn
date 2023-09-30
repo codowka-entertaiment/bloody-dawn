@@ -1,40 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://daawvpk782fnt"]
+[gd_scene load_steps=4 format=3 uid="uid://daawvpk782fnt"]
 
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_2bgvj"]
-[ext_resource type="Texture2D" uid="uid://djylhrqks8ht8" path="res://assets/floor/grass_1.png" id="1_wpl0d"]
 [ext_resource type="PackedScene" uid="uid://w2v4r0fyrhwg" path="res://player/player.tscn" id="2_x2du7"]
-[ext_resource type="PackedScene" uid="uid://rcb4jkd04w21" path="res://enemy/Zombie.tscn" id="4_p4sg7"]
+[ext_resource type="Texture2D" uid="uid://bevhgr1i827ib" path="res://assets/floor/grass_2.jpg" id="3_uidgi"]
 
 [node name="Level_1" type="Node2D"]
-position = Vector2(160, 176)
+position = Vector2(576, 328)
 script = ExtResource("1_2bgvj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="PlayerNode" type="Node2D" parent="."]
 
 [node name="Player" parent="PlayerNode" instance=ExtResource("2_x2du7")]
-position = Vector2(352, 120)
 
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Spawner" type="Timer" parent="Mobs"]
-wait_time = 5.0
+wait_time = 0.841
 autostart = true
 
-[node name="Zombie" parent="Mobs" instance=ExtResource("4_p4sg7")]
-visible = false
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(512, 512)
+texture_filter = 5
+position = Vector2(576, 328)
+motion_mirroring = Vector2(1280, 1280)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_filter = 1
+texture_filter = 5
 texture_repeat = 2
-position = Vector2(495.5, 324.95)
-scale = Vector2(0.999643, 1.00006)
-texture = ExtResource("1_wpl0d")
+position = Vector2(-1.13687e-13, -5.96046e-08)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_uidgi")
 region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 2048, 1024)
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 5120, 5120)
 
 [connection signal="timeout" from="Mobs/Spawner" to="." method="_on_spawner_timeout"]
+
+[editable path="PlayerNode/Player"]
