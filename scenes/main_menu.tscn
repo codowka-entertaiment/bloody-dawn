@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbtjhjmqhtce0"]
+[gd_scene load_steps=14 format=3 uid="uid://bbtjhjmqhtce0"]
 
 [ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="1_qkw4s"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_yw0bs"]
 [ext_resource type="Texture2D" uid="uid://cc8orb1divqov" path="res://assets/main_menu/start.png" id="2_8hlno"]
-[ext_resource type="Texture2D" uid="uid://br0xxbjat7uya" path="res://assets/main_menu/start2.png" id="4_x454g"]
+[ext_resource type="Texture2D" uid="uid://d07k0kqindlwv" path="res://assets/main_menu/settings_hover.png" id="4_guije"]
 [ext_resource type="Texture2D" uid="uid://d1cx7cklogq81" path="res://assets/main_menu/exit.png" id="5_1sb3a"]
-[ext_resource type="Texture2D" uid="uid://clp1o6gx0tqp6" path="res://assets/main_menu/shop_button_beta.png" id="6_0mk3k"]
+[ext_resource type="Texture2D" uid="uid://c53yixpgroa78" path="res://assets/main_menu/start_hover.png" id="6_2836w"]
 [ext_resource type="Texture2D" uid="uid://dpvpd4rtrcig1" path="res://assets/main_menu/settings.png" id="7_f7sx6"]
-[ext_resource type="Texture2D" uid="uid://boicxqg5m3smj" path="res://assets/main_menu/credits_button_beta.png" id="7_t52k6"]
+[ext_resource type="Texture2D" uid="uid://c41kei7vg3q3e" path="res://assets/main_menu/shop.png" id="7_ypuhg"]
+[ext_resource type="Texture2D" uid="uid://5gqegpbbk0dq" path="res://assets/main_menu/shop_hover.png" id="8_ty4ij"]
 [ext_resource type="AudioStream" uid="uid://cm1ith6hd5f8e" path="res://assets/music/funny test main menu ost.mp3" id="8_uousk"]
+[ext_resource type="Texture2D" uid="uid://37n8g4dxntsl" path="res://assets/main_menu/credits.png" id="9_a2c1k"]
+[ext_resource type="Texture2D" uid="uid://c6rt1a83hy8oe" path="res://assets/main_menu/credits_hover.png" id="10_pxh4c"]
+[ext_resource type="Texture2D" uid="uid://dh4bhdj48k43u" path="res://assets/main_menu/exit_hover.png" id="12_8njf6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,69 +33,81 @@ texture = ExtResource("1_qkw4s")
 [node name="SettingsButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 898.0
-offset_top = 270.0
-offset_right = 1125.0
-offset_bottom = 353.0
+offset_left = 882.0
+offset_top = 330.0
+offset_right = 1116.0
+offset_bottom = 413.0
 focus_neighbor_top = NodePath("../ShopButton")
 focus_neighbor_bottom = NodePath("../CreditsButton")
 texture_normal = ExtResource("7_f7sx6")
+texture_hover = ExtResource("4_guije")
+texture_focused = ExtResource("4_guije")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="StartButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 933.0
-offset_top = 104.0
-offset_right = 1099.0
-offset_bottom = 196.0
+offset_left = 968.0
+offset_top = 148.0
+offset_right = 1056.0
+offset_bottom = 194.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../ShopButton")
 texture_normal = ExtResource("2_8hlno")
-texture_hover = ExtResource("4_x454g")
-texture_focused = ExtResource("4_x454g")
+texture_hover = ExtResource("6_2836w")
+texture_focused = ExtResource("6_2836w")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="ShopButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 898.0
-offset_top = 195.0
-offset_right = 1115.0
-offset_bottom = 278.0
+offset_left = 923.0
+offset_top = 244.0
+offset_right = 988.0
+offset_bottom = 268.0
+scale = Vector2(3, 3)
 focus_neighbor_top = NodePath("../StartButton")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = ExtResource("6_0mk3k")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+texture_normal = ExtResource("7_ypuhg")
+texture_hover = ExtResource("8_ty4ij")
+texture_focused = ExtResource("8_ty4ij")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 911.0
-offset_top = 373.0
-offset_right = 1123.0
-offset_bottom = 456.0
+offset_left = 908.0
+offset_top = 442.0
+offset_right = 987.0
+offset_bottom = 462.0
+scale = Vector2(3, 3)
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
-texture_normal = ExtResource("7_t52k6")
+texture_normal = ExtResource("9_a2c1k")
+texture_hover = ExtResource("10_pxh4c")
+texture_focused = ExtResource("10_pxh4c")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="ExitButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 946.0
-offset_top = 458.0
-offset_right = 1089.0
-offset_bottom = 541.0
+offset_left = 955.0
+offset_top = 521.0
+offset_right = 1100.0
+offset_bottom = 561.0
+scale = Vector2(1.5, 1.5)
 focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = ExtResource("5_1sb3a")
+texture_hover = ExtResource("12_8njf6")
+texture_focused = ExtResource("12_8njf6")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_uousk")
