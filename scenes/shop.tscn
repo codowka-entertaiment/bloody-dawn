@@ -1,0 +1,464 @@
+[gd_scene load_steps=14 format=3 uid="uid://trqfr70fqbrq"]
+
+[ext_resource type="Script" path="res://scenes/shop.gd" id="1_7kxxk"]
+[ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="1_ypcj6"]
+[ext_resource type="Texture2D" uid="uid://bo0okukf0bvsw" path="res://assets/shop/shop-texture.png" id="2_xm1k2"]
+[ext_resource type="Texture2D" uid="uid://bp6jrcaurgeia" path="res://assets/shop/rainbow-scythe.png" id="3_7wptf"]
+[ext_resource type="Texture2D" uid="uid://d1cx7cklogq81" path="res://assets/main_menu/exit.png" id="4_ktes6"]
+[ext_resource type="Texture2D" uid="uid://dh4bhdj48k43u" path="res://assets/main_menu/exit_hover.png" id="5_jv0w6"]
+[ext_resource type="Texture2D" uid="uid://j3ls15vlt2wa" path="res://assets/shop/coin.png" id="6_15c7y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_me55u"]
+bg_color = Color(0.278431, 0.192157, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uisnv"]
+bg_color = Color(0.737255, 0.423529, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir7yq"]
+bg_color = Color(0.745709, 0.414597, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubs0"]
+bg_color = Color(0.882353, 0.482353, 0.0823529, 1)
+
+[sub_resource type="Theme" id="Theme_btomx"]
+Button/colors/font_color = Color(0.145098, 1, 0.960784, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_me55u")
+Button/styles/focus = SubResource("StyleBoxFlat_uisnv")
+Button/styles/hover = SubResource("StyleBoxFlat_ir7yq")
+Button/styles/normal = SubResource("StyleBoxFlat_gubs0")
+
+[sub_resource type="Theme" id="Theme_6xt22"]
+Label/colors/font_color = Color(0.933333, 0.694118, 0, 1)
+Label/font_sizes/font_size = 15
+Label/fonts/font = null
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7kxxk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ypcj6")
+
+[node name="ShopRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -256.0
+offset_right = 500.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xm1k2")
+
+[node name="MenuBar" type="MenuBar" parent="ShopRect"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 825.0
+offset_bottom = 452.0
+
+[node name="Item" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(40, 15)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton" type="Button" parent="ShopRect/MenuBar/Item/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_right = NodePath("../../../Item2/ColorRect/BuyButton2")
+focus_neighbor_bottom = NodePath("../../../Item5/ColorRect/BuyButton5")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item2" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(220, 15)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item2"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item2/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton2" type="Button" parent="ShopRect/MenuBar/Item2/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item/ColorRect/BuyButton")
+focus_neighbor_right = NodePath("../../../Item3/ColorRect/BuyButton3")
+focus_neighbor_bottom = NodePath("../../../Item6/ColorRect/BuyButton6")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item2/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item2/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item3" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(400, 15)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item3"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item3/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton3" type="Button" parent="ShopRect/MenuBar/Item3/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item2/ColorRect/BuyButton2")
+focus_neighbor_right = NodePath("../../../Item4/ColorRect/BuyButton4")
+focus_neighbor_bottom = NodePath("../../../Item7/ColorRect/BuyButton7")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item3/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item3/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item4" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(580, 15)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item4"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item4/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton4" type="Button" parent="ShopRect/MenuBar/Item4/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item3/ColorRect/BuyButton3")
+focus_neighbor_right = NodePath("../../../../ExitButton")
+focus_neighbor_bottom = NodePath("../../../Item8/ColorRect/BuyButton8")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item4/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item4/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item5" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(40, 200)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item5"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item5/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton5" type="Button" parent="ShopRect/MenuBar/Item5/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_top = NodePath("../../../Item/ColorRect/BuyButton")
+focus_neighbor_right = NodePath("../../../Item6/ColorRect/BuyButton6")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item5/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item5/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item6" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(220, 200)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item6"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item6/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton6" type="Button" parent="ShopRect/MenuBar/Item6/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item5/ColorRect/BuyButton5")
+focus_neighbor_top = NodePath("../../../Item2/ColorRect/BuyButton2")
+focus_neighbor_right = NodePath("../../../Item7/ColorRect/BuyButton7")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item6/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item6/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item7" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(400, 200)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item7"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item7/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton7" type="Button" parent="ShopRect/MenuBar/Item7/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item6/ColorRect/BuyButton6")
+focus_neighbor_top = NodePath("../../../Item3/ColorRect/BuyButton3")
+focus_neighbor_right = NodePath("../../../Item8/ColorRect/BuyButton8")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item7/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item7/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="Item8" type="Node2D" parent="ShopRect/MenuBar"]
+position = Vector2(580, 200)
+
+[node name="ColorRect" type="ColorRect" parent="ShopRect/MenuBar/Item8"]
+offset_left = -25.0
+offset_right = 110.0
+offset_bottom = 148.0
+color = Color(0.435294, 0.435294, 0.435294, 0.752941)
+
+[node name="ItemTexture" type="TextureRect" parent="ShopRect/MenuBar/Item8/ColorRect"]
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 98.0
+offset_bottom = 64.0
+texture = ExtResource("3_7wptf")
+
+[node name="BuyButton8" type="Button" parent="ShopRect/MenuBar/Item8/ColorRect"]
+offset_left = 23.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 142.0
+focus_neighbor_left = NodePath("../../../Item7/ColorRect/BuyButton7")
+focus_neighbor_top = NodePath("../../../Item4/ColorRect/BuyButton4")
+focus_neighbor_right = NodePath("../../../../ExitButton")
+theme = SubResource("Theme_btomx")
+text = "Buy"
+
+[node name="Description" type="Label" parent="ShopRect/MenuBar/Item8/ColorRect"]
+offset_left = 2.0
+offset_top = 61.0
+offset_right = 133.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6xt22")
+text = "RAINBOW SCYTHE"
+
+[node name="Price" type="Label" parent="ShopRect/MenuBar/Item8/ColorRect"]
+offset_left = 2.0
+offset_top = 83.0
+offset_right = 133.0
+offset_bottom = 108.0
+theme = SubResource("Theme_6xt22")
+text = "300 BUCKS"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="ShopRect"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 375.0
+offset_right = 949.0
+offset_bottom = 439.0
+texture_normal = ExtResource("4_ktes6")
+texture_hover = ExtResource("5_jv0w6")
+texture_focused = ExtResource("5_jv0w6")
+
+[node name="Description" type="Label" parent="ShopRect"]
+layout_mode = 0
+offset_left = 868.0
+offset_top = 60.0
+offset_right = 975.0
+offset_bottom = 86.0
+text = "YOUR MONEY"
+
+[node name="CoinTexture" type="TextureRect" parent="ShopRect"]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 83.0
+offset_right = 903.0
+offset_bottom = 123.0
+texture = ExtResource("6_15c7y")
+
+[node name="Wallet" type="Label" parent="ShopRect"]
+offset_left = 899.0
+offset_top = 91.0
+offset_right = 996.0
+offset_bottom = 117.0
+text = "0"
+
+[connection signal="pressed" from="ShopRect/MenuBar/Item/ColorRect/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item2/ColorRect/BuyButton2" to="." method="_on_buy_button_2_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item3/ColorRect/BuyButton3" to="." method="_on_buy_button_3_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item4/ColorRect/BuyButton4" to="." method="_on_buy_button_4_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item5/ColorRect/BuyButton5" to="." method="_on_buy_button_5_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item6/ColorRect/BuyButton6" to="." method="_on_buy_button_6_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item7/ColorRect/BuyButton7" to="." method="_on_buy_button_7_pressed"]
+[connection signal="pressed" from="ShopRect/MenuBar/Item8/ColorRect/BuyButton8" to="." method="_on_buy_button_8_pressed"]
+[connection signal="pressed" from="ShopRect/ExitButton" to="." method="_on_exit_button_pressed"]
