@@ -27,6 +27,7 @@ boot_splash/minimum_display_time=1000
 
 MainMenuAudio="*res://scenes/main_menu_audio.tscn"
 GlobalVars="*res://global_vars.gd"
+Save="*res://save.gd"
 
 [debug]
 
