@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://ttmi1qx6hjqt"]
+
+[ext_resource type="Script" path="res://scenes/load_screen.gd" id="1_ixejk"]
+[ext_resource type="Texture2D" uid="uid://d1dyywdu1qvjy" path="res://assets/start_window/loading3.png" id="1_siqqi"]
+[ext_resource type="Texture2D" uid="uid://b7tp8pydceego" path="res://assets/enemy/chuchelo.png" id="1_uabrg"]
+[ext_resource type="Texture2D" uid="uid://bblkidh8iwqj5" path="res://assets/start_window/loading2.png" id="2_kyxy1"]
+[ext_resource type="Texture2D" uid="uid://dbf2niyokwnnb" path="res://assets/start_window/loading1.png" id="3_7nq2a"]
+[ext_resource type="Texture2D" uid="uid://nf15g0cwb03w" path="res://assets/start_window/loading.png" id="4_uur4e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wughn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_siqqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kyxy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7nq2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uur4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_3786h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7r8e8"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8q3k6"]
+_data = {
+"RESET": SubResource("Animation_3786h"),
+"walking": SubResource("Animation_7r8e8")
+}
+
+[node name="LoadScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixejk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.469
+anchor_right = 0.921
+anchor_bottom = 0.61
+offset_left = -0.416012
+offset_top = 0.0879924
+offset_right = 0.00792694
+offset_bottom = -0.280009
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Loading" type="AnimatedSprite2D" parent="ColorRect/ColorRect"]
+position = Vector2(-235, -29)
+sprite_frames = SubResource("SpriteFrames_wughn")
+frame_progress = 0.222187
+centered = false
+
+[node name="ZombieSprite2D" type="Sprite2D" parent="ColorRect"]
+texture_filter = 1
+position = Vector2(1063, 581)
+scale = Vector2(1.00943, 1)
+texture = ExtResource("1_uabrg")
+flip_h = true
+hframes = 7
+
+[node name="ZombieAnimation" type="AnimationPlayer" parent="ColorRect/ZombieSprite2D"]
+autoplay = "walking"
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_8q3k6")
+}

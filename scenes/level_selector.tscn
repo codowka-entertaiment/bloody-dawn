@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://gus7se5lvd46"]
+
+[ext_resource type="Script" path="res://scenes/level_selector.gd" id="1_8h68k"]
+[ext_resource type="Texture2D" uid="uid://djylhrqks8ht8" path="res://assets/floor/grass_1.png" id="2_2lman"]
+[ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="2_aapur"]
+[ext_resource type="Theme" uid="uid://bi62y48rlgg8j" path="res://assets/buttons_themes/level_selector_button.tres" id="2_m00xh"]
+[ext_resource type="Texture2D" uid="uid://d3qbxh0onbjts" path="res://assets/main_menu/selector2.png" id="3_8pcl3"]
+[ext_resource type="Texture2D" uid="uid://diid56vie02y1" path="res://assets/main_menu/selector.png" id="4_tenms"]
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_8h68k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_aapur")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 576.0
+texture = ExtResource("3_8pcl3")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 2
+offset_left = 704.0
+offset_top = 91.0
+offset_right = 1024.0
+offset_bottom = 435.0
+focus_mode = 2
+
+[node name="Forest" type="MenuButton" parent="MenuBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 81.0
+offset_right = 289.0
+offset_bottom = 128.0
+focus_neighbor_left = NodePath("../../Description/RichTextLabel")
+focus_neighbor_bottom = NodePath("../Rooocks")
+focus_mode = 2
+theme = ExtResource("2_m00xh")
+text = "FOREST"
+
+[node name="Rooocks" type="MenuButton" parent="MenuBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 145.0
+offset_right = 289.0
+offset_bottom = 192.0
+focus_neighbor_left = NodePath("../../Description/RichTextLabel")
+focus_neighbor_top = NodePath("../Forest")
+focus_neighbor_bottom = NodePath("../../ReturnButton")
+focus_mode = 2
+theme = ExtResource("2_m00xh")
+text = "ROOOCKS"
+
+[node name="Label" type="Label" parent="MenuBar"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 64.0
+theme = ExtResource("2_m00xh")
+text = "LEVELS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 465.0
+offset_right = 993.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../Description/RichTextLabel")
+focus_neighbor_top = NodePath("../MenuBar/Rooocks")
+focus_neighbor_bottom = NodePath("../MenuBar/Forest")
+focus_mode = 2
+theme = ExtResource("2_m00xh")
+text = "Back"
+
+[node name="Description" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 704.0
+offset_bottom = 576.0
+texture = ExtResource("4_tenms")
+
+[node name="LevelPreview" type="TextureRect" parent="Description"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("2_2lman")
+expand_mode = 1
+
+[node name="LevelName" type="Label" parent="Description"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 66.0
+offset_right = 512.0
+offset_bottom = 92.0
+text = "LEVEL 1 - GRASS LEVEL
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Description"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 449.0
+focus_neighbor_right = NodePath("../../MenuBar/Forest")
+focus_mode = 2
+text = "LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+LEVEL DESCRIPTION
+"
+
+[connection signal="pressed" from="MenuBar/Forest" to="." method="_on_forest_pressed"]
+[connection signal="pressed" from="MenuBar/Rooocks" to="." method="_on_rooocks_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

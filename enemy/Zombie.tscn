@@ -42,6 +42,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vi82"]
+radius = 15.0
+height = 46.0
 
 [node name="Zombie" type="CharacterBody2D"]
 collision_layer = 2
@@ -57,6 +59,7 @@ hframes = 7
 
 [node name="ZombieAnimation" type="AnimationPlayer" parent="ZombieSprite2D"]
 autoplay = "walking"
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_8q3k6")
 }
