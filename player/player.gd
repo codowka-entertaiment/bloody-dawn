@@ -37,7 +37,11 @@ func movement(delta):
 	if Input.is_action_pressed("right"):
 		$PlayerAnimation2D.flip_h = false
 		pass
-	$PlayerAnimation2D/AnimationPlayer.play("movement")
+		
+	if velocity != Vector2.ZERO:
+		$PlayerAnimation2D/AnimationPlayer.play("movement")
+	else: 
+		$PlayerAnimation2D/AnimationPlayer.pause()
 	
 	# diagonal movement speed should be the same as vertical/horizontal movement, so we should normalize it
 	move_and_slide()
