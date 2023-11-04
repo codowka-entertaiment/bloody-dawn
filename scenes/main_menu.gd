@@ -8,10 +8,6 @@ var current_button
 @onready var settings_button = $SettingsButton
 @onready var credits_button = $CreditsButton
 @onready var exit_button = $ExitButton
-@onready var lvl1_button = $LevelSelector/MenuBar/Forest
-@onready var lvl2_button = $LevelSelector/MenuBar/Rooocks
-@onready var lvl_desc = $LevelSelector/Description/RichTextLabel
-@onready var level_selector = $LevelSelector
 
 func _ready():
 	is_gamepad_connected = true if Input.get_connected_joypads().size() == 1 else false
