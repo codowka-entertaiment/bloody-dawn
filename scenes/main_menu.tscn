@@ -3,18 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://bt2qq87d0mfi7" path="res://assets/main_menu/menuupdated1.png" id="1_qkw4s"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_yw0bs"]
 [ext_resource type="Texture2D" uid="uid://cc8orb1divqov" path="res://assets/main_menu/start.png" id="2_8hlno"]
+[ext_resource type="Texture2D" uid="uid://by1jvmrd7dcrn" path="res://assets/main_menu/logo.png" id="3_6bkoq"]
 [ext_resource type="Texture2D" uid="uid://d07k0kqindlwv" path="res://assets/main_menu/settings_hover.png" id="4_guije"]
 [ext_resource type="Texture2D" uid="uid://d1cx7cklogq81" path="res://assets/main_menu/exit.png" id="5_1sb3a"]
 [ext_resource type="Texture2D" uid="uid://c53yixpgroa78" path="res://assets/main_menu/start_hover.png" id="6_2836w"]
 [ext_resource type="Texture2D" uid="uid://dpvpd4rtrcig1" path="res://assets/main_menu/settings.png" id="7_f7sx6"]
 [ext_resource type="Texture2D" uid="uid://c41kei7vg3q3e" path="res://assets/main_menu/shop.png" id="7_ypuhg"]
 [ext_resource type="Texture2D" uid="uid://5gqegpbbk0dq" path="res://assets/main_menu/shop_hover.png" id="8_ty4ij"]
-[ext_resource type="AudioStream" uid="uid://cm1ith6hd5f8e" path="res://assets/music/funny test main menu ost.mp3" id="8_uousk"]
 [ext_resource type="Texture2D" uid="uid://37n8g4dxntsl" path="res://assets/main_menu/credits.png" id="9_a2c1k"]
 [ext_resource type="Texture2D" uid="uid://c6rt1a83hy8oe" path="res://assets/main_menu/credits_hover.png" id="10_pxh4c"]
 [ext_resource type="Texture2D" uid="uid://dh4bhdj48k43u" path="res://assets/main_menu/exit_hover.png" id="12_8njf6"]
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +29,16 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_qkw4s")
+
+[node name="Logo" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 17.0
+offset_right = 809.0
+offset_bottom = 173.0
+texture = ExtResource("3_6bkoq")
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 texture_filter = 1
@@ -108,11 +118,6 @@ texture_hover = ExtResource("12_8njf6")
 texture_focused = ExtResource("12_8njf6")
 ignore_texture_size = true
 stretch_mode = 3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_uousk")
-volume_db = -20.0
-autoplay = true
 
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

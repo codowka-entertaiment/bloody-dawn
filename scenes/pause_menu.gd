@@ -9,7 +9,7 @@ func _ready():
 	get_viewport().connect("gui_focus_changed", _on_focus_changed)
 
 func _input(event):
-	if event.is_action_pressed("action") || event.is_action_pressed("up") || event.is_action_pressed("down") || event.is_action_pressed("left") || event.is_action_pressed("right") || event.is_action_pressed("action"):
+	if event.is_action_pressed("action") || event.is_action_pressed("up") || event.is_action_pressed("down") || event.is_action_pressed("left") || event.is_action_pressed("right"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if event is InputEventMouseMotion:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -36,6 +36,7 @@ func _on_continue_button_pressed():
 
 func _on_exit_button_pressed():
 	game_manager.game_paused = false
+	MainMenuAudio.play()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 

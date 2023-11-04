@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://driit2do5d3hr"]
+
+[ext_resource type="Script" path="res://scenes/Settings.gd" id="1_ss2xf"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ss2xf")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Video" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 88.5
+offset_right = 121.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resolution" type="Label" parent="TabContainer/Video/HBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="DisplayModes" type="OptionButton" parent="TabContainer/Video/HBoxContainer"]
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/DisplayModes" to="." method="_on_option_button_item_selected"]
