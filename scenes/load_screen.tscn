@@ -101,7 +101,7 @@ color = Color(1, 1, 1, 0)
 [node name="Loading" type="AnimatedSprite2D" parent="ColorRect/ColorRect"]
 position = Vector2(-235, -29)
 sprite_frames = SubResource("SpriteFrames_wughn")
-frame_progress = 0.364341
+frame_progress = 0.222187
 centered = false
 
 [node name="ZombieSprite2D" type="Sprite2D" parent="ColorRect"]

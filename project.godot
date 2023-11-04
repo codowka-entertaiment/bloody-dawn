@@ -20,7 +20,6 @@ run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/start_window/loading.png"
 boot_splash/fullsize=false
-boot_splash/use_filter=false
 config/icon="res://assets/other/arm strong.png"
 boot_splash/minimum_display_time=1000
 
