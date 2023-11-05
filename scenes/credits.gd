@@ -4,8 +4,8 @@ var current_button
 
 func _ready():
 	get_viewport().connect("gui_focus_changed", _on_focus_changed)
-	$ExitButton.grab_focus()
-	current_button = $ExitButton
+	$ReturnButton.grab_focus()
+	current_button = $ReturnButton
 	
 func _on_focus_changed(button):
 	current_button = button
@@ -18,5 +18,7 @@ func _input(event):
 	if Input.is_action_pressed("action"):
 		current_button.emit_signal("pressed")
 
-func _on_texture_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+func _on_return_button_pressed():
+	while GlobalVars.preloaded_scenes["menu"] == null:
+		pass
+	get_tree().change_scene_to_packed(GlobalVars.preloaded_scenes['menu'])

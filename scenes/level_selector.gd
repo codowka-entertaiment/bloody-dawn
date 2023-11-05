@@ -3,10 +3,10 @@ extends Control
 var is_gamepad_connected
 var current_button
 
-@onready var return_button = $ReturnButton
+@onready var return_button = $MenuBar/ReturnButton
 @onready var lvl_button_lst: Array = [
-	$MenuBar/Forest,
-	$MenuBar/Rooocks
+	$MenuBar/VBoxContainer/Level1Button,
+	$MenuBar/VBoxContainer/Level2Button,
 ]
 
 func _ready():
@@ -26,13 +26,16 @@ func _input(event):
 	if Input.is_action_pressed("action"):
 		current_button.emit_signal("pressed")
 
-func _on_forest_pressed():
+func _on_return_button_pressed():
+	while GlobalVars.preloaded_scenes["menu"] == null:
+		pass
+	get_tree().change_scene_to_packed(GlobalVars.preloaded_scenes['menu'])
+
+func _on_level_1_button_pressed():
 	MainMenuAudio.stop()
 	GlobalVars.current_level = "res://scenes/level_1_gm.tscn"
 	get_tree().change_scene_to_file("res://scenes/load_screen.tscn")
 
-func _on_rooocks_pressed():
-	pass # Replace with function body.
 
-func _on_return_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+func _on_level_2_button_pressed():
+	pass # Replace with function body.
