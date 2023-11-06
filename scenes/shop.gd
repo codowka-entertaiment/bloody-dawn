@@ -2,12 +2,12 @@ extends Control
 
 var current_button
 
-@onready var exit_button = $ShopRect/ExitButton
+@onready var exit_button = $ShopRect/VBoxContainer/ExitButton
 @onready var shop_items = [
-	$ShopRect/MenuBar/Item/ColorRect/BuyButton, $ShopRect/MenuBar/Item2/ColorRect/BuyButton2,
-	$ShopRect/MenuBar/Item3/ColorRect/BuyButton3, $ShopRect/MenuBar/Item4/ColorRect/BuyButton4,
-	$ShopRect/MenuBar/Item5/ColorRect/BuyButton5, $ShopRect/MenuBar/Item6/ColorRect/BuyButton6,
-	$ShopRect/MenuBar/Item7/ColorRect/BuyButton7, $ShopRect/MenuBar/Item8/ColorRect/BuyButton8
+	$ShopRect/MenuBar/VBoxContainer/HBoxContainer/Item/ColorRect/BuyButton, $ShopRect/MenuBar/VBoxContainer/HBoxContainer/Item2/ColorRect/BuyButton2,
+	$ShopRect/MenuBar/VBoxContainer/HBoxContainer/Item3/ColorRect/BuyButton3, $ShopRect/MenuBar/VBoxContainer/HBoxContainer/Item4/ColorRect/BuyButton4,
+	$ShopRect/MenuBar/VBoxContainer/HBoxContainer2/Item5/ColorRect/BuyButton5, $ShopRect/MenuBar/VBoxContainer/HBoxContainer2/Item6/ColorRect/BuyButton6,
+	$ShopRect/MenuBar/VBoxContainer/HBoxContainer2/Item7/ColorRect/BuyButton7, $ShopRect/MenuBar/VBoxContainer/HBoxContainer2/Item8/ColorRect/BuyButton8
 ]
 
 func _ready():
@@ -25,11 +25,6 @@ func _input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_pressed("action"):
 		current_button.emit_signal("pressed")
-
-
-func _on_exit_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
 
 func _on_buy_button_pressed():
 	pass # Replace with function body.
@@ -61,3 +56,7 @@ func _on_buy_button_7_pressed():
 
 func _on_buy_button_8_pressed():
 	pass # Replace with function body.
+
+
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
