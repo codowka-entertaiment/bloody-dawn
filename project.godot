@@ -29,10 +29,6 @@ MainMenuAudio="*res://scenes/main_menu_audio.tscn"
 GlobalVars="*res://global_vars.gd"
 Save="*res://save.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/mode=3

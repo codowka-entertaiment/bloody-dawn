@@ -48,7 +48,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leq21"]
 size = Vector2(20, 28)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_fqb2f")
 
