@@ -24,6 +24,7 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
+anti_aliasing_size = 6.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn5wr"]
 content_margin_left = 10.0
@@ -46,6 +47,7 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
+anti_aliasing_size = 6.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drn75"]
 content_margin_left = 10.0
@@ -89,6 +91,7 @@ corner_detail = 20
 expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
+anti_aliasing_size = 6.6
 
 [sub_resource type="Theme" id="Theme_64naq"]
 Button/colors/font_color = Color(1, 1, 1, 1)
