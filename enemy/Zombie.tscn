@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://rcb4jkd04w21"]
+[gd_scene load_steps=11 format=3 uid="uid://rcb4jkd04w21"]
 
 [ext_resource type="Script" path="res://enemy/Zombie.gd" id="1_4xi2q"]
 [ext_resource type="Texture2D" uid="uid://b7tp8pydceego" path="res://assets/enemy/chuchelo.png" id="2_gb306"]
+[ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://utilities/hurt_box.tscn" id="3_ln4rc"]
+[ext_resource type="PackedScene" uid="uid://bgbee4wdfig23" path="res://utilities/hit_box.tscn" id="4_r7kc3"]
 
 [sub_resource type="Animation" id="Animation_3786h"]
 length = 0.001
@@ -45,7 +47,13 @@ _data = {
 radius = 15.0
 height = 46.0
 
-[node name="Zombie" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfs1"]
+size = Vector2(30, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f5m0"]
+size = Vector2(17, 32)
+
+[node name="Zombie" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4xi2q")
@@ -66,3 +74,24 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0vi82")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_ln4rc")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="1"]
+shape = SubResource("RectangleShape2D_0wfs1")
+
+[node name="HitBox" parent="." instance=ExtResource("4_r7kc3")]
+position = Vector2(-42.5352, 34.4431)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(44.0352, -33.4431)
+shape = SubResource("RectangleShape2D_3f5m0")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]
