@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var move_speed = 120.0
+var hp = 20
 const max_speed = 200
 const accel = 1500
 const friction = 10000
@@ -45,3 +46,8 @@ func movement(delta):
 	
 	# diagonal movement speed should be the same as vertical/horizontal movement, so we should normalize it
 	move_and_slide()
+
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage 
+	print(hp)

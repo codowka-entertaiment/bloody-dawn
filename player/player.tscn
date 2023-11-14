@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://w2v4r0fyrhwg"]
+[gd_scene load_steps=9 format=3 uid="uid://w2v4r0fyrhwg"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
+[ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://utilities/hurt_box.tscn" id="3_1v4rm"]
 [ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/character/movement/main character sprite sheet.png" id="4_mr7nb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f8yq"]
@@ -44,6 +45,9 @@ _data = {
 "movement": SubResource("Animation_t6ci5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leq21"]
+size = Vector2(20, 28)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_fqb2f")
@@ -65,3 +69,18 @@ autoplay = "movement"
 libraries = {
 "": SubResource("AnimationLibrary_o6145")
 }
+
+[node name="HurtBox" parent="." instance=ExtResource("3_1v4rm")]
+position = Vector2(-42.5352, 34.4431)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="1"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(42.5352, -33.4431)
+shape = SubResource("RectangleShape2D_leq21")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
