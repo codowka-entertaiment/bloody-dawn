@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://btqtfcniayq0l"]
 
-[ext_resource type="Script" path="res://scenes/menus/pause/pause.gd" id="1_ld0lk"]
+[ext_resource type="Script" path="res://scenes/menus/GUI/gui.gd" id="1_ld0lk"]
 [ext_resource type="PackedScene" uid="uid://daawvpk782fnt" path="res://scenes/level1/level1.tscn" id="2_avl05"]
-[ext_resource type="PackedScene" uid="uid://bcu8tpmbl4dqa" path="res://scenes/menus/pause/pause.tscn" id="3_x7gpv"]
+[ext_resource type="PackedScene" uid="uid://bcu8tpmbl4dqa" path="res://scenes/menus/GUI/GUI.tscn" id="3_x7gpv"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
