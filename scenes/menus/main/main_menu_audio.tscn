@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjhwycv1imfwp"]
+
+[ext_resource type="AudioStream" uid="uid://cm1ith6hd5f8e" path="res://assets/music/funny test main menu ost.mp3" id="1_065mv"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_065mv")
+volume_db = -20.0
+autoplay = true
