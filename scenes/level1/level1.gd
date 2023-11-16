@@ -3,7 +3,7 @@ extends Node2D
 var mob_preload = preload("res://enemies/zombie/zombie.tscn")
 @onready var camera: Camera2D = get_node("Camera2D")
 @onready var texture: ParallaxBackground = get_node("ParallaxBackground")
-var proj_preload = preload("res://player/weapons/magican_red_staff_proj.tscn") # todo: change this
+var proj_preload = preload("res://player/weapons/mrs/magician_red_staff.tscn") # todo: change this
 
 var last_position
 
@@ -38,6 +38,4 @@ func spawnProj (): #remove this
 	add_child(proj)
 
 func _on_test_attack_timer_timeout():#remove timer and add something better
-	spawnProj()
-	spawnProj()
 	spawnProj()

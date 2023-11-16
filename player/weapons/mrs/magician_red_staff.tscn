@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://xguc6gh8svs2"]
+
+[ext_resource type="Script" path="res://player/weapons/mrs/magican_red_staff_proj.gd" id="1_7svls"]
+[ext_resource type="PackedScene" uid="uid://dd7il610y346l" path="res://common/fireball/fireball.tscn" id="2_xgq5l"]
+[ext_resource type="PackedScene" uid="uid://bgbee4wdfig23" path="res://common/hitbox/hitbox.tscn" id="3_ouxtv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ye2uc"]
+
+[node name="magician_red_staff" type="Node2D"]
+script = ExtResource("1_7svls")
+
+[node name="fireball" parent="." instance=ExtResource("2_xgq5l")]
+
+[node name="HitBox" parent="." instance=ExtResource("3_ouxtv")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_ye2uc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="HitBox"]
