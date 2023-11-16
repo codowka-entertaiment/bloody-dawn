@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcu8tpmbl4dqa"]
+
+[ext_resource type="Script" path="res://scenes/menus/GUI/gui.gd" id="1_cowus"]
+[ext_resource type="PackedScene" uid="uid://b4g6v2073hiah" path="res://scenes/menus/pause/pause_menu.tscn" id="2_he0hg"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_cowus")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_he0hg")]
+process_mode = 2
