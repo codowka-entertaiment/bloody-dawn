@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://w2v4r0fyrhwg"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
-[ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://utilities/hurt_box.tscn" id="3_1v4rm"]
-[ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/character/movement/main character sprite sheet.png" id="4_mr7nb"]
+[ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://common/hurtbox/hurtbox.tscn" id="3_1v4rm"]
+[ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/player/movement/main character sprite sheet.png" id="4_mr7nb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f8yq"]
 height = 35.0
