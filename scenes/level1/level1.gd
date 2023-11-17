@@ -21,17 +21,6 @@ func _process(_delta):
 		camera.position.y = player.position.y
 		last_position = player.position
 
-
-func EnemySpawn ():
-	var enemy = mob_preload.instantiate()
-	enemy.position = get_node("PlayerNode/Player").position + Vector2(get_viewport_rect().size.x / 2, 0).rotated(randf_range(0, 2 * PI))
-	$Mobs.add_child(enemy)
-
-
-func _on_spawner_timeout():
-	if $Mobs.get_child_count() < 10:
-		EnemySpawn()
-
 func spawnProj (): #remove this
 	var proj = proj_preload.instantiate()
 	proj.position = get_node("PlayerNode/Player").position
