@@ -1,25 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://w2v4r0fyrhwg"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
+[ext_resource type="Texture2D" uid="uid://cdcyke5qp1peo" path="res://assets/player/firemage/Idle.png" id="2_it0ky"]
 [ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://common/hurtbox/hurtbox.tscn" id="3_1v4rm"]
-[ext_resource type="Texture2D" uid="uid://dfsciq8lqhu16" path="res://assets/player/movement/main character sprite sheet.png" id="4_mr7nb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0f8yq"]
 height = 35.0
 
 [sub_resource type="Animation" id="Animation_kcimp"]
-length = 0.001
+length = 1.6
+loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_t6ci5"]
@@ -59,10 +61,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="PlayerAnimation2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-3, 2)
-scale = Vector2(2.32, 2.16)
-texture = ExtResource("4_mr7nb")
+scale = Vector2(0.846667, 0.84)
+texture = ExtResource("2_it0ky")
 hframes = 8
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimation2D"]
 autoplay = "movement"
