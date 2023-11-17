@@ -29,6 +29,16 @@ func _ready():
 	get_viewport().connect("gui_focus_changed", _on_focus_changed)
 	start_button.grab_focus()
 	current_button = start_button
+	var file
+	var settings = false
+	if FileAccess.file_exists(GlobalVars.FILE_NAME):
+		file = FileAccess.open(GlobalVars.FILE_NAME, FileAccess.READ)
+		settings = file.get_as_text()
+		settings = JSON.parse_string(settings)
+	if not MainMenuAudio.playing:
+		if settings:
+			MainMenuAudio.volume_db = settings['music']
+		MainMenuAudio.play()
 
 func are_preloaded() -> bool:
 	var result = true

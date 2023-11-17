@@ -9,8 +9,7 @@ var last_position
 
 
 func _ready():
-	pass # Replace with function body.
-
+	$AudioStreamPlayer.volume_db = MainMenuAudio.volume_db
 
 func _process(_delta):
 	var player = get_node("PlayerNode/Player")

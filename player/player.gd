@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var move_speed = 120.0
-var hp = 20
+var hp = 20.0
+var max_hp = hp
 const max_speed = 200
 const accel = 1500
 const friction = 10000
@@ -10,7 +11,6 @@ var input = Vector2.ZERO
 
 func _physics_process(delta):
 	movement(delta)
-
 
 func movement(delta):
 	input.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -50,5 +50,10 @@ func movement(delta):
 
 
 func _on_hurt_box_hurt(damage):
-	hp -= damage 
+	hp -= damage
+	print("value: ", $HpBar.value)
+	$HpBar.value = (hp / max_hp) * 100.0
+	set_modulate(Color(1, 0, 0, 1))
+	await get_tree().create_timer(0.2).timeout
+	set_modulate(Color(1, 1, 1, 1))
 	print(hp)

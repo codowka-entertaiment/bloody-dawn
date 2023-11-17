@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://diblsuawxwlul" path="res://common/hurtbox/hurtbox.tscn" id="3_nu3e4"]
 [ext_resource type="PackedScene" uid="uid://bgbee4wdfig23" path="res://common/hitbox/hitbox.tscn" id="4_yueys"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5tfd"]
+custom_solver_bias = 0.1
+radius = 12.0
+
 [sub_resource type="Animation" id="Animation_3786h"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,10 +47,6 @@ _data = {
 "walking": SubResource("Animation_7r8e8")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g5tfd"]
-custom_solver_bias = 0.1
-radius = 12.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfs1"]
 size = Vector2(30, 46)
 
@@ -56,7 +56,14 @@ size = Vector2(17, 32)
 [node name="Zombie" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+platform_on_leave = 2
+safe_margin = 0.05
 script = ExtResource("1_lqwlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g5tfd")
 
 [node name="ZombieSprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -71,10 +78,6 @@ speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_8q3k6")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_g5tfd")
-one_way_collision_margin = 128.0
 
 [node name="HurtBox" parent="." instance=ExtResource("3_nu3e4")]
 collision_layer = 4
