@@ -83,7 +83,7 @@ locale/locale_filter_mode=0
 
 [navigation]
 
-2d/default_cell_size=32
+2d/default_cell_size=64
 
 [physics]
 
@@ -91,6 +91,8 @@ locale/locale_filter_mode=0
 2d/physics_engine="GodotPhysics2D"
 3d/default_gravity=2.08165e-12
 2d/default_gravity=2.08165e-12
+2d/default_gravity_vector=Vector2(0, 0)
+2d/solver/solver_iterations=2
 
 [rendering]
 
