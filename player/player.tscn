@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://w2v4r0fyrhwg"]
+[gd_scene load_steps=12 format=3 uid="uid://w2v4r0fyrhwg"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
 [ext_resource type="Texture2D" uid="uid://cdcyke5qp1peo" path="res://assets/player/firemage/Idle.png" id="2_it0ky"]
@@ -50,7 +50,19 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leq21"]
 size = Vector2(20, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxvwr"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek7bu"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_0nyw7"]
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lxvwr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ek7bu")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 10
 motion_mode = 1
 script = ExtResource("1_fqb2f")
 
@@ -64,7 +76,6 @@ texture_filter = 1
 scale = Vector2(0.846667, 0.84)
 texture = ExtResource("2_it0ky")
 hframes = 8
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimation2D"]
 autoplay = "movement"
@@ -82,6 +93,15 @@ light_mask = 4
 visibility_layer = 4
 position = Vector2(42.5352, -33.4431)
 shape = SubResource("RectangleShape2D_leq21")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+offset_left = -11.0
+offset_top = 24.0
+offset_right = 10.0
+offset_bottom = 27.0
+theme = SubResource("Theme_0nyw7")
+value = 100.0
+show_percentage = false
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

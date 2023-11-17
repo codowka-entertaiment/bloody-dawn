@@ -6,7 +6,6 @@ var current_button
 @onready var save_button = $TextureRect/ColorRect/VBoxContainer/HBoxContainer/SaveButton
 @onready var music_slider = $TextureRect/ColorRect/VBoxContainer/MenuBar/VBoxContainer/Music/HSlider
 @onready var effects_slider = $TextureRect/ColorRect/VBoxContainer/MenuBar/VBoxContainer/Effects/HSlider
-
 @onready var music_volume = MainMenuAudio.volume_db
 
 func _ready():
@@ -27,10 +26,19 @@ func _input(event):
 		current_button.emit_signal("pressed")
 
 func _on_save_button_pressed():
+	var settings = GlobalVars.settings
+	settings['music'] = MainMenuAudio.volume_db
+	if is_inf(settings['music']):
+		settings['music'] = -100
+	if is_inf(settings['effects']):
+		settings['effects'] = -100
+	settings = JSON.stringify(settings)
+	var file = FileAccess.open(GlobalVars.FILE_NAME, FileAccess.WRITE)
+	file.store_string(settings)
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")
 
 func _on_exit_button_pressed():
-	MainMenuAudio.volume_db = music_volume # SAVE THAT SHIT TO FILE @ALEXEY AND LOAD FROM FILE TOO
+	MainMenuAudio.volume_db = music_volume
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")
 
 func _on_h_slider_value_changed(value):

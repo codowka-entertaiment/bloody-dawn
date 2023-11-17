@@ -88,11 +88,13 @@ locale/locale_filter_mode=0
 [physics]
 
 2d/run_on_separate_thread=true
+common/max_physics_steps_per_frame=1
+common/physics_jitter_fix=2.08165e-12
 2d/physics_engine="GodotPhysics2D"
 3d/default_gravity=2.08165e-12
 2d/default_gravity=2.08165e-12
 2d/default_gravity_vector=Vector2(0, 0)
-2d/solver/solver_iterations=2
+2d/solver/solver_iterations=1
 
 [rendering]
 

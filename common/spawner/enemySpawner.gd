@@ -6,8 +6,6 @@ extends Node2D
 
 var time = 0
 
-
-
 func _on_timer_timeout():
 	time += 1
 	var enemySpawns = spawms
@@ -16,14 +14,14 @@ func _on_timer_timeout():
 			if i.spawnDelayCounter < i.enemySpawnDelay:
 				i.spawnDelayCounter += 1
 			else:
-					i.spawnDelayCounter = 0
-					var newEnemy = load(str(i.enemy.resource_path))
-					var counter = 0
-					while counter < i.enemyNum:
-						var enemySpawn = newEnemy.instantiate()
-						enemySpawn.global_position = enemyPosition()
-						add_child(enemySpawn)
-						counter += 1
+				i.spawnDelayCounter = 0
+				var newEnemy = load(str(i.enemy.resource_path))
+				var counter = 0
+				while counter < i.enemyNum:
+					var enemySpawn = newEnemy.instantiate()
+					enemySpawn.global_position = enemyPosition()
+					add_child(enemySpawn)
+					counter += 1
 
 
 func enemyPosition ():
