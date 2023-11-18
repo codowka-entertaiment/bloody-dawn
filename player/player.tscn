@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w2v4r0fyrhwg"]
+[gd_scene load_steps=14 format=3 uid="uid://w2v4r0fyrhwg"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_fqb2f"]
 [ext_resource type="Texture2D" uid="uid://cdcyke5qp1peo" path="res://assets/player/firemage/Idle.png" id="2_it0ky"]
@@ -61,6 +61,11 @@ ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_lxvwr")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ek7bu")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5dq7"]
+radius = 55.0364
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tik1b"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 motion_mode = 1
@@ -103,6 +108,22 @@ theme = SubResource("Theme_0nyw7")
 value = 100.0
 show_percentage = false
 
+[node name="grabArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grabArea"]
+shape = SubResource("CircleShape2D_x5dq7")
+
+[node name="collectArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectArea"]
+shape = SubResource("CircleShape2D_tik1b")
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="area_entered" from="grabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="collectArea" to="." method="_on_collect_area_area_entered"]
 
 [editable path="HurtBox"]
