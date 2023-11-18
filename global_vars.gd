@@ -18,3 +18,9 @@ var settings: Dictionary = {
 	"music": -20,
 	"effects": -20
 }
+
+var preview_textures = [
+	load('res://assets/floor/grass_3.png'),
+	load('res://assets/floor/rock.png'),
+	load('res://assets/floor/fabric.png')
+]
