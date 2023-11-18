@@ -51,7 +51,6 @@ func movement(delta):
 
 func _on_hurt_box_hurt(damage):
 	hp -= damage
-	print("value: ", $HpBar.value)
 	$HpBar.value = (hp / max_hp) * 100.0
 	set_modulate(Color(1, 0, 0, 1))
 	await get_tree().create_timer(0.2).timeout

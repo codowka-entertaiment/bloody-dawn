@@ -18,6 +18,7 @@ var preload_scenes = {
 }
 
 func _ready():
+	print("main menu")
 	for scene in preload_scenes:
 		if GlobalVars.preloaded_scenes[scene] == null:
 			ResourceLoader.load_threaded_request(preload_scenes[scene])
