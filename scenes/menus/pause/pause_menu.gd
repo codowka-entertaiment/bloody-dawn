@@ -36,6 +36,9 @@ func _on_continue_button_pressed():
 
 func _on_exit_button_pressed():
 	game_manager.game_paused = false
+	GlobalVars.global_gold += GlobalVars.level_gold
+	GlobalVars.level_gold = 0
+	GlobalVars.save_gold()
 	MainMenuAudio.play()
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")
 

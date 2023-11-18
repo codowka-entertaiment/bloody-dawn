@@ -7,7 +7,6 @@ var proj_preload = preload("res://player/weapons/mrs/magician_red_staff.tscn") #
 
 var last_position
 
-
 func _ready():
 	$AudioStreamPlayer.volume_db = MainMenuAudio.volume_db
 

@@ -32,10 +32,16 @@ func _ready():
 	current_button = start_button
 	var file
 	var settings = false
+	var save
 	if FileAccess.file_exists(GlobalVars.FILE_NAME):
 		file = FileAccess.open(GlobalVars.FILE_NAME, FileAccess.READ)
 		settings = file.get_as_text()
 		settings = JSON.parse_string(settings)
+	if FileAccess.file_exists(GlobalVars.SAVE_NAME):
+		file = FileAccess.open(GlobalVars.SAVE_NAME, FileAccess.READ)
+		save = file.get_as_text()
+		save = JSON.parse_string(save)
+		GlobalVars.global_gold = save['gold']
 	if not MainMenuAudio.playing:
 		if settings:
 			MainMenuAudio.volume_db = settings['music']

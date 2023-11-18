@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bux1c7erjurtf"]
 
-[node name="loot" type="Area2D" groups=["exp", "loot"]]
+[node name="loot" type="Area2D" groups=["loot"]]
 collision_layer = 8
 collision_mask = 0
 

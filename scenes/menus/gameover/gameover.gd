@@ -39,12 +39,18 @@ func _on_game_manager_dead(is_dead: bool):
 func _on_try_again_button_pressed():
 	MainMenuAudio.stop()
 	get_tree().paused = false
+	GlobalVars.global_gold += GlobalVars.level_gold
+	GlobalVars.level_gold = 0
+	GlobalVars.save_gold()
 	GlobalVars.current_level = "res://scenes/level1/level1_gm.tscn"
 	get_tree().change_scene_to_file("res://scenes/loadscreen/load.tscn")
 
 func _on_return_button_pressed():
 	MainMenuAudio.play()
 	get_tree().paused = false
+	GlobalVars.global_gold += GlobalVars.level_gold
+	GlobalVars.level_gold = 0
+	GlobalVars.save_gold()
 	while GlobalVars.preloaded_scenes["menu"] == null:
 		pass
 	get_tree().change_scene_to_packed(GlobalVars.preloaded_scenes['menu'])

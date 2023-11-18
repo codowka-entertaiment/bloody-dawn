@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5xf4"]
 size = Vector2(13, 16)
 
-[node name="experience_gem" instance=ExtResource("1_m3mly")]
+[node name="experience_gem" groups=["exp"] instance=ExtResource("1_m3mly")]
 collision_mask = 8
 script = ExtResource("1_kiuhv")
 
