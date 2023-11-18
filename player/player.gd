@@ -81,6 +81,7 @@ func _on_collect_area_area_entered(area):
 			emit_signal("experienceChanged")
 		elif area.is_in_group("gold"):
 			gold += area.collect()
+			area.collectFinished()
 
 func calculateExp(gemExp):
 	var expReq = calculateExpReq()
