@@ -39,6 +39,5 @@ func _on_exit_button_pressed():
 	MainMenuAudio.play()
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")
 
-
 func _on_focus_entered():
 	pass # Replace with function body.
