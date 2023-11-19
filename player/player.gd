@@ -17,6 +17,7 @@ const friction = 10000
 var input = Vector2.ZERO
 
 signal experienceChanged
+signal levelChanged
 signal goldCollected
 
 func _physics_process(delta):
@@ -78,9 +79,9 @@ func _on_collect_area_area_entered(area):
 			var gemExp = area.collect()
 			area.collectFinished()
 			calculateExp(gemExp)
-			emit_signal("experienceChanged")
 		elif area.is_in_group("gold"):
 			gold += area.collect()
+			emit_signal("goldCollected")
 			area.collectFinished()
 
 func calculateExp(gemExp):
@@ -91,9 +92,10 @@ func calculateExp(gemExp):
 		experienceLevel += 1
 		experience = 0
 		expReq = calculateExpReq()
-		emit_signal("experienceChanged")
+		emit_signal("levelChanged")
 		levelup()
 	experience += collectedExperience
+	emit_signal("experienceChanged", {"required": calculateExpReq(), "current": experience})
 	collectedExperience = 0
 
 func calculateExpReq():
@@ -107,4 +109,4 @@ func calculateExpReq():
 	return expCap
 
 func levelup(): # todo: weapon choice screen, upgrades etc.
-	print(experienceLevel)
+	print("level up", experienceLevel)

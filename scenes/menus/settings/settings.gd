@@ -32,7 +32,7 @@ func _on_save_button_pressed():
 		settings['music'] = -100
 	if is_inf(settings['effects']):
 		settings['effects'] = -100
-	settings = JSON.stringify(settings)
+	settings	 = JSON.stringify(settings)
 	var file = FileAccess.open(GlobalVars.FILE_NAME, FileAccess.WRITE)
 	file.store_string(settings)
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")

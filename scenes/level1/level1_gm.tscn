@@ -24,6 +24,9 @@ game_manager = NodePath("../..")
 [node name="LevelCompleted" parent="GUI" node_paths=PackedStringArray("game_manager") instance=ExtResource("4_mluq0")]
 game_manager = NodePath("../..")
 
+[connection signal="experienceChanged" from="Level_1/PlayerNode/Player" to="GUI/LevelBar" method="_on_player_experience_changed"]
+[connection signal="goldCollected" from="Level_1/PlayerNode/Player" to="GUI/Money" method="_on_player_gold_collected"]
+[connection signal="levelChanged" from="Level_1/PlayerNode/Player" to="GUI/LevelBar" method="_on_player_level_changed"]
 [connection signal="pressed" from="GUI/PauseMenu/Panel/VBoxContainer/ContinueButton" to="GUI/PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Panel/VBoxContainer/ExitButton" to="GUI/PauseMenu" method="_on_exit_button_pressed"]
 [connection signal="timeout" from="GUI/TimerLabel/Timer" to="." method="_on_timer_timeout"]

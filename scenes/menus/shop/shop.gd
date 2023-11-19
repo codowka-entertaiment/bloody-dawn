@@ -14,6 +14,7 @@ func _ready():
 	get_viewport().connect("gui_focus_changed", _on_focus_changed)
 	shop_items[0].grab_focus()
 	current_button = shop_items[0]
+	$ShopRect/VBoxContainer/HBoxContainer/Wallet.text = str(GlobalVars.global_gold)
 
 func _on_focus_changed(button):
 	current_button = button
